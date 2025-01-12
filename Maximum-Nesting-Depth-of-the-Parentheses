@@ -1,0 +1,25 @@
+class Solution {
+public:
+    // Function to calculate the maximum depth of nested parentheses
+    int maxDepth(string s) {
+        int opening = 0; // Keeps track of the current depth (open parentheses count)
+        int ans = 0;     // Stores the maximum depth encountered
+        
+        // Step 1: Iterate through the string
+        for (int i = 0; i < s.length(); i++) {
+            // Step 2: Increase depth for an opening parenthesis
+            if (s[i] == '(') {
+                opening++;
+            }
+            // Step 3: Decrease depth for a closing parenthesis
+            else if (s[i] == ')') {
+                opening--;
+            }
+            // Step 4: Update the maximum depth encountered
+            ans = max(ans, opening);
+        }
+        
+        // Step 5: Return the maximum depth
+        return ans;
+    }
+};
